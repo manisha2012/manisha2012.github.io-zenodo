@@ -1,0 +1,16 @@
+#access_token_div {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #1b809e;
+}
+
+#access_token {
+  width:100%;
+}
+
+#upload_figshare_div {
+  margin-top: 5rem;
+}
