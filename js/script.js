@@ -64,12 +64,14 @@ var uploadDataOnZenodo = function (uploadedData) {
                         })
                         .fail( function( reason ) {
                             console.info("file upload failed :", reason );
+
                         })
                 })
                 .fail( function( reason ) {
                     console.info("article creation failed :", reason );
+
                 })
-        )
+              )
             .then(
                 // Success
                 function( response ) {
@@ -82,10 +84,12 @@ var uploadDataOnZenodo = function (uploadedData) {
                     // Has thrown an error
                     // in case of multiple errors, it throws the first one
                     console.log("error :", error);
+                    progBarDivObj.addClass('hide');
+                    $("#zenodo_upload_fail").removeClass('hide');
+                    $("#zenodo_upload_fail").find('p').html(error.responseJSON.message);
                 },
             );
     } )( jQuery, zenodo_token, uploadedData, progBarObj, articleData || {} );
-
 };
 
 $(document).ready(function () {
@@ -94,19 +98,8 @@ $(document).ready(function () {
     e.preventDefault();
     access_token = $("#access_token").val();
     if(access_token) {
+      $("#access_token").val('');
       $("#upload_figshare_div").removeClass('hide');
-      /*
-      if(confirm("Once uploaded the data will be submitted to Zenodo. You can make changes and publish it later. Are you sure you want to continue?")){
-        //$('#submit_contribution').addClass('hide');
-        uploadDataOnZenodo({
-            file:file,
-            upload_type:fileType,
-            title:zenodo_article_name,
-            description:zenodo_article_description,
-            creators:[{'name':zenodo_author_name, 'affiliation': 'Zenodo'}]
-        });
-      }
-      */
     }
   });
 
@@ -118,13 +111,15 @@ $(document).ready(function () {
     console.log(title, description, file);
     if(title && description && file) {
       console.log("yes");
-      uploadDataOnZenodo({
+      if(confirm("Once uploaded the data will be submitted to Zenodo. You can make changes and publish it later. Are you sure you want to continue?")) {
+        uploadDataOnZenodo({
             file:file,
             upload_type:'dataset',
             title:title,
             description:description,
             access_token:access_token
         });
+      }
     }
   });
 });
