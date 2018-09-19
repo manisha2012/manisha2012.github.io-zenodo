@@ -58,8 +58,9 @@ var uploadDataOnZenodo = function (uploadedData) {
                         .done(function (data) {
                             console.log("zenodo file location :", data);
                             progBarDivObj.addClass('hide');
-                            $('#upload_figshare_div').find('input').val('');
-                            $("#upload_figshare_div").show();
+                            $("#zenodo_upload_success").removeClass('hide');
+                            //$('#upload_figshare_div').find('input').val('');
+                            //$("#upload_figshare_div").show();
                             //showUploadedZenodoFile(depositionData);
                         })
                         .fail( function( reason ) {

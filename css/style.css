@@ -11,10 +11,6 @@
   width:100%;
 }
 
-#upload_figshare_div {
-  margin-top: 5rem;
-}
-
-#zenodo_upload_fail {
+#upload_figshare_div, #zenodo_upload_fail, #zenodo_upload_success, #zenodo_progress_bar_div {
   margin-top: 5rem;
 }
