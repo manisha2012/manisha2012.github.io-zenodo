@@ -1,6 +1,6 @@
 # zenodo-upload-jquery 
 
-### (Please refer gh-pages)
+### (Please refer gh-pages branch)
 
 This is about uploading data on Zenodo from your application using jQuery. The researchers can publish their data on Zenodo from within your platform, without the need to separately log into Zenodo for publishing their data. 
 
